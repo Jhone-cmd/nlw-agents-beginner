@@ -28,10 +28,10 @@
                 <p>Pergunte sobre estratégias, builds e dicas para os seus jogos!</p>
 
 
-                <form>
-                    <input type="password" placeholder="Informe a API KEY do Gemini" required>
+                <form id="form">
+                    <input id="apiKey" type="password" placeholder="Informe a API KEY do Gemini" required>
 
-                    <select name="" id="">
+                    <select id="gameSelect">
                         <option value="" disabled selected>Selecione o jogo</option>
                         <option value="lol">League of Legends</option>
                         <option value="valorant">Valorant</option>
@@ -39,8 +39,10 @@
                         <option value="dota2">Dota 2</option>
                         <option value="fortnite">Fortnite</option>
                     </select>
-                    <input type="text" placeholder="Ex.: Melhor build para ADC...">
-                    <button type="submit">Pergunta</button>
+
+                    <input id="questionInput" type="text" placeholder="Ex.: Melhor build para ADC...">
+
+                    <button id="askButton" type="submit">Pergunta</button>
                 </form>
 
                 <div id="aiResponse">
@@ -49,6 +51,9 @@
             </div>
         </section>
     </main>
+
+
+    <script src="./script.js"></script>
 </body>
 
 </html>

@@ -48,7 +48,8 @@ section>div {
     background-color: #2a2634;
 }
 
-section h1 h2 {
+section h1,
+section h2 {
     letter-spacing: -0.47px;
 }
 
