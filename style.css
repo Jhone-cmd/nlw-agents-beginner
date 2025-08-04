@@ -115,3 +115,40 @@ button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 1rem rgba(255, 248, 107, 0.2);
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+    }
+
+    main {
+        width: 90%;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input,
+    select {
+        width: 90%;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header img {
+        width: 12rem;
+    }
+
+    section h1 {
+        font-size: 1.5rem;
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+}
