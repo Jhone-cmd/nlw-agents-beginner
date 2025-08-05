@@ -5,6 +5,11 @@ const askButton = document.getElementById('askButton')
 const aiResponse = document.getElementById('aiResponse')
 const form = document.getElementById('form')
 
+function marDownHTML(text) {
+    const converter = new showdown.Converter()
+    return converter.makeHtml(text)
+}
+
 async function questionAI(question, game, apiKey) {
     const model = "gemini-2.5-flash"
     const geminiURL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
@@ -30,9 +35,7 @@ async function questionAI(question, game, apiKey) {
     })
 
     const data = await response.json()
-    console.log({ data });
-
-    return
+    return data.candidates[0].content.parts[0].text;
 }
 
 const enviarFormulario = async (event) => {
@@ -52,7 +55,7 @@ const enviarFormulario = async (event) => {
 
     try {
         const text = await questionAI(question, game, apiKey)
-        console.log(text);
+        document.getElementById('aiResponse').innerHTML = marDownHTML(text)
 
     } catch (error) {
         console.log('Erro ao enviar o formulário:', error);
