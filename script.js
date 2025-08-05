@@ -5,7 +5,7 @@ const askButton = document.getElementById('askButton')
 const aiResponse = document.getElementById('aiResponse')
 const form = document.getElementById('form')
 
-function marDownHTML(text) {
+function markdownToHTML(text) {
     const converter = new showdown.Converter()
     return converter.makeHtml(text)
 }
@@ -55,7 +55,8 @@ const enviarFormulario = async (event) => {
 
     try {
         const text = await questionAI(question, game, apiKey)
-        document.getElementById('aiResponse').innerHTML = marDownHTML(text)
+        aiResponse.querySelector('.response-content').innerHTML = markdownToHTML(text)
+        aiResponse.classList.remove('hidden')
 
     } catch (error) {
         console.log('Erro ao enviar o formulário:', error);
